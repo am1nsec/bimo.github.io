@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE svg [
-  <!ENTITY test SYSTEM "db.py">
+  <!ENTITY flag SYSTEM "history.db">
 ]>
 <svg xmlns="http://www.w3.org/2000/svg" width="300" height="100">
-  <text x="10" y="20" font-size="12">&test;</text>
+  <text x="10" y="20" font-size="12">&flag;</text>
 </svg>

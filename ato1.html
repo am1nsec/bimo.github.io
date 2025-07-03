@@ -89,11 +89,11 @@
       <form action="/login" method="POST">
         <div class="input-group">
           <label for="email">E‑mailadres</label>
-          <input type="email" id="email" name="email" placeholder="jouw@email.nl" required />
+          <input type="email" name="email" autocomplete="username" required />
         </div>
         <div class="input-group">
           <label for="password">Wachtwoord</label>
-          <input type="password" id="password" name="password" placeholder="••••••••" required />
+          <input type="password" name="password" autocomplete="current-password" required />
         </div>
         <button type="submit" class="btn-login">Inloggen</button>
       </form>

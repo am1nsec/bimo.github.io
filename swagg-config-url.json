@@ -3,7 +3,7 @@
 	"urls": [
 		{
 			"url": "https://am1nsec.github.io/bimo.github.io/swag-t-xss.yaml",
-			"name": "XSS payload"
+			"name": "<h1>poc</h1>"
 		}
 	]
 }

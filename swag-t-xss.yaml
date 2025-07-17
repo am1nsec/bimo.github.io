@@ -2,7 +2,8 @@ swagger: "2.0"
 info:
   title: Classic API Resource Documentation
   description: |
-  <h1>hacked you</h1>
+    <h1>poc</h1>
+
   version: production
 basePath: /JSSResource/
 produces:
@@ -27,7 +28,7 @@ paths:
     delete:
       parameters:
         - description: |
-          <h1>hacked you</h1>
+            <h1>poc</h1>
           format: int64
           in: path
           name: id

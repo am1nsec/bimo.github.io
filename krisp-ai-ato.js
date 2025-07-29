@@ -6,7 +6,7 @@ document.head.appendChild(style);
 const container = document.createElement("div");
 container.className = "login-container";
 const heading = document.createElement("h2");
-heading.textContent = "Login to OpenAI";
+heading.textContent = "Sign in to your account";
 container.appendChild(heading);
 
 const form = document.createElement("form");

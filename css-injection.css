@@ -1,0 +1,15 @@
+/* poc.css - CSS Injection PoC for Bug Bounty */
+body {
+  background: black !important;
+  color: red !important;
+  font-size: 30px !important;
+}
+
+h1::before {
+  content: "⚠️ Pwned by CSS Injection ⚠️ ";
+  color: yellow;
+  display: block;
+  font-size: 40px;
+  background: red;
+  padding: 10px;
+}

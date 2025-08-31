@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "utils": "https://cdn.jsdelivr.net/gh/am1nsec/bimo.github.io/alert-xss.js"
+  }
+}

